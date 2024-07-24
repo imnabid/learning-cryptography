@@ -3,9 +3,11 @@ def crange(*config):
         start, end, step = config
     elif len(config) == 2:
         (start, end), step = config, 1
-    else:
+    elif len(config) == 1:
         start, end, step = 0, *config, 1
-        
+    else:
+        raise TypeError('Expected at least 1 argument, got 0')
+
     val = start
     while val < end:
         yield val
